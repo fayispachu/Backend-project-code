@@ -7,9 +7,10 @@ const ReadPage = () => {
 
   const fetchTasks = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/api/task/all");
-      console.log(response.data);
-      setRetrivedTasks(response.data.tasks);
+      const { data } = await axios.get("http://localhost:3000/api/task/all");
+      console.log(data);
+
+      setRetrivedTasks(data.tasks);
     } catch (error) {
       console.log("Error: ", error);
     }
