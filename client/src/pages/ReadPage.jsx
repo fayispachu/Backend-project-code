@@ -20,7 +20,7 @@ const ReadPage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-400 flex flex-col items-center">
+    <div className="min-h-screen bg-green-500 flex flex-col items-center">
       {retrivedTasks.map((item, index) => (
         <Task key={index} taskName={item.task} id={item._id} />
       ))}

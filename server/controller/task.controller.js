@@ -22,14 +22,29 @@ const deleteTask = async (req, res) => {
   return res.status(200).json({ msg: "Task deleted", deleteTask });
 };
 
-const updateTask = async (req, res) => {
+const getOneTask = async (req, res) => {
   const id = req.query.id;
   console.log(id);
-  const updateTask = await Task.findById(id);
-  return res.status(200).json({ updateTask });
+  const task = await Task.findById(id);
+  console.log(task);
+  return res.status(200).json({ task });
 };
 
-module.exports = { createTask, getAllTasks, deleteTask, updateTask }; // Export controller functions
+const updateTask = async (req, res) => {
+  const id = req.query.id;
+  const { task } = req.body;
+
+  const update = await Task.findByIdAndUpdate(id, { task }, { new: true });
+  return res.status(200).json({ message: "data updated", update });
+};
+
+module.exports = {
+  createTask,
+  getAllTasks,
+  deleteTask,
+  getOneTask,
+  updateTask,
+}; // Export controller functions
 
 // createTask:
 // Extracts the userTask data sent in the request body.

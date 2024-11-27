@@ -2,10 +2,7 @@ import PropTypes from "prop-types";
 import { MdDelete } from "react-icons/md";
 import axios from "axios";
 import { BiEdit } from "react-icons/bi";
-import Link from "react-router-dom";
-const handleRefresh = () => {
-  window.location.reload();
-};
+import { Link } from "react-router-dom";
 
 function Task({ taskName, id }) {
   const handleDelete = async () => {
@@ -20,11 +17,14 @@ function Task({ taskName, id }) {
       console.log("Error: ", error);
     }
   };
+  const handleRefresh = () => {
+    window.location.reload();
+  };
 
   return (
     <>
-      <div className="bg-yellow-400 w-1/2 p-4 rounded-lg my-4 flex items-center justify-between">
-        <Link to={`update/${id}`}>
+      <div className="bg-red-500 font-bold text-xl w-1/2 p-4 rounded-lg my-4 flex items-center justify-between">
+        <Link to={`/update/${id}`}>
           <BiEdit />
         </Link>
         {taskName}

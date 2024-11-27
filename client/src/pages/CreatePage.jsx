@@ -20,7 +20,7 @@ function CreatePage() {
   return (
     <>
       <main className=" flex justify-center items-center flex-col py-56 ">
-        <h1 className="font-bold text-2xl my-5">Welcome Employee</h1>
+        <h1 className="font-bold text-2xl my-5">Enter Your Task</h1>
         <form action="">
           <label>
             Enter Task Name:

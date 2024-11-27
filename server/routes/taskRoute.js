@@ -3,6 +3,8 @@ const {
   createTask,
   getAllTasks,
   deleteTask,
+  getOneTask,
+  updateTask,
 } = require("../controller/task.controller");
 
 const taskRouter = express.Router();
@@ -10,6 +12,9 @@ const taskRouter = express.Router();
 taskRouter.post("/create", createTask); // Route to create a new task
 taskRouter.get("/all", getAllTasks); // Route to get all tasks
 taskRouter.delete("/delete", deleteTask);
+taskRouter.get("/one", getOneTask);
+taskRouter.put("/one", updateTask);
+
 module.exports = taskRouter; // Export the router
 
 // Explanation:
