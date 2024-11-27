@@ -1,7 +1,8 @@
 import PropTypes from "prop-types";
 import { MdDelete } from "react-icons/md";
 import axios from "axios";
-
+import { BiEdit } from "react-icons/bi";
+import Link from "react-router-dom";
 const handleRefresh = () => {
   window.location.reload();
 };
@@ -13,6 +14,7 @@ function Task({ taskName, id }) {
         `http://localhost:3000/api/task/delete?id=${id}`
       );
       console.log(data);
+
       // alert(data.msg);
     } catch (error) {
       console.log("Error: ", error);
@@ -22,6 +24,9 @@ function Task({ taskName, id }) {
   return (
     <>
       <div className="bg-yellow-400 w-1/2 p-4 rounded-lg my-4 flex items-center justify-between">
+        <Link to={`update/${id}`}>
+          <BiEdit />
+        </Link>
         {taskName}
         <MdDelete
           onClick={() => {

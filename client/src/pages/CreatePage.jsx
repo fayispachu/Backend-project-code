@@ -3,8 +3,9 @@ import { useState } from "react";
 
 function CreatePage() {
   const [userTask, setUserTask] = useState("");
-  const handleAddTask = async () => {
+  const handleAddTask = async (e) => {
     try {
+      e.preventDefault();
       const response = await axios.post(
         "http://localhost:3000/api/task/create",
         { userTask }
