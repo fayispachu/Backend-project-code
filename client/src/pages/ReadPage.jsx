@@ -9,7 +9,6 @@ const ReadPage = () => {
     try {
       const { data } = await axios.get("http://localhost:3000/api/task/all");
       console.log(data);
-
       setRetrivedTasks(data.tasks);
     } catch (error) {
       console.log("Error: ", error);
